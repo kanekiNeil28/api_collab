@@ -1,0 +1,58 @@
+body {
+	background-color: #EFEFEF;
+	margin: 0;
+	padding: 0;
+}
+
+#wrapper {
+	width: 1000px;
+	padding: 0;
+	margin: 0 auto;
+}
+
+#content {
+	background-color: #FFFFFF;
+	width: 700px;
+	float: left;
+	padding: 0 2.5em 0 2.5em;
+	margin: 0;
+}
+
+#content p, ol, ul {
+	font-family: "Open Sans Condensed", sans-serif;
+	color: #444444;
+}
+
+#content a:link, #content a:visited {
+	color: #C09100;
+	text-decoration: none;
+}
+
+#content a:hover, #content a:active {
+	color: #C09100;
+	text-decoration: underline;
+}
+
+#map {
+	height: 400px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+strong {
+	color: #444444;
+	font-size: 100%;
+	font-weight: bold;
+}
+
+h1 {
+	color: #444444;
+	font: 3em "Amatic SC";
+	text-align: center;
+}
+
+h2 {
+	color: #444444;
+	font: 2em "Amatic SC";
+	text-align: center;
+}
