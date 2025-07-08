@@ -33,15 +33,16 @@
 
     // Set the view of the map
     // with the latitude, longitude and the zoom value
-    map.setView([48.8584, 2.2945], 16);
+    map.setView([120.6312458, 14.07495865], 16);
     
     // Set the map view to the user's location
     // Uncomment below to set map according to user location
     // map.locate({setView: true, maxZoom: 16});
 
-    // Show a market at the position of the Eiffel Tower
-    let eiffelMarker = L.marker([48.8584, 2.2945]).addTo(map);
+   
+    let nasugbujabe = L.marker([120.6312458, 14.0749586]).addTo(map);
+    
 
     // Bind popup to the marker with a popup
-    eiffelMarker.bindPopup("Eiffel Tower").openPopup();
+    nasugbujabe.bindPopup("Eiffel Tower").openPopup();
 </script>
