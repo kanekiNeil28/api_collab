@@ -1,43 +1,28 @@
-<html>
-<head>
-  <!-- Link to Leaflet's CSS file: -->
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-  <!-- My own CSS file: -->
-  <link rel="stylesheet" type="text/css" href="rumkommenstyle.css" />
-  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-  <script src="JS/Leaflet.MakiMarkers.js"></script>
-  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
-  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-</head>
+<script>
+    // Initialize the map
+    const map = L.map('map')
 
-<body>
-  <div id="wrapper">
+    // Get the tile layer from OpenStreetMaps
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
-    <div id="content">
-      
-      <div id="map">
-        <script type="text/javascript">
-          var layer = new L.StamenTileLayer("watercolor");
-          var map = new L.Map("map", {
-            center: new L.LatLng(56.074207, -3.376634),
-            zoom: 6
-          });
-          var icon = L.MakiMarkers.icon({
-            icon: "marker",
-            color: "#900",
-            size: "m",
-          });
+    // Specify the maximum zoom of the map
+    maxZoom: 19,
 
-          map.addLayer(layer);
+    // Set the attribution for OpenStreetMaps
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 
-          L.marker([56.074207, -3.376634], {
-            icon: icon,
-            title: 'Crossgates, Fife, Scotland',
-            alt: 'Crossgates, Fife, Scotland',
-          }).addTo(map);
-        </script>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+    // Set the view of the map
+    // with the latitude, longitude and the zoom value
+    map.setView([48.8584, 2.2945], 16);
+    
+    // Set the map view to the user's location
+    // Uncomment below to set map according to user location
+    // map.locate({setView: true, maxZoom: 16});
+
+    // Show a market at the position of the Eiffel Tower
+    let eiffelMarker = L.marker([48.8584, 2.2945]).addTo(map);
+
+    // Bind popup to the marker with a popup
+    eiffelMarker.bindPopup("Eiffel Tower").openPopup();
+</script>
