@@ -1,48 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Leaflet.js Guide</title>
-<meta charset="utf-8" />
-<meta name="viewport" 
-      content="width=device-width, initial-scale=1.0">
-<!-- Get the leaflet CSS file -->
-<link rel="stylesheet" href=
-"https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-    crossorigin="" />
+    <meta charset="UTF-8">
+    <title>Leaflet.js Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" crossorigin=""></script>
+
+
+    <style>
+        #map {
+            width: 960px;
+            height: 500px;
+        }
+    </style>
 </head>
 <body>
-<h1>My Leafletjs Map</h1>
-<!-- Specify the map and it's dimensions -->
-<div id="map" style="width: 960px; height: 500px"></div>
+    <h1>My Leaflet.js Map</h1>
+    <!-- Map container -->
+    <div id="map"></div>
+
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([14.0749586, 120.6312458], 16);
+
+        // Add OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add a marker at the given location
+        const marker = L.marker([14.0749586, 120.6312458]).addTo(map);
+        marker.bindPopup("Nasugbu, Batangas").openPopup();  // Change label to match the location
+
+        
+         //map.locate({ setView: true, maxZoom: 16 });
+    </script>
 </body>
 </html>
-<script>
-    // Initialize the map
-    const map = L.map('map')
-
-    // Get the tile layer from OpenStreetMaps
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-
-    // Specify the maximum zoom of the map
-    maxZoom: 19,
-
-    // Set the attribution for OpenStreetMaps
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    // Set the view of the map
-    // with the latitude, longitude and the zoom value
-    map.setView([120.6312458, 14.07495865], 16);
-    
-    // Set the map view to the user's location
-    // Uncomment below to set map according to user location
-    // map.locate({setView: true, maxZoom: 16});
-
-   
-    let nasugbujabe = L.marker([120.6312458, 14.0749586]).addTo(map);
-    
-
-    // Bind popup to the marker with a popup
-    nasugbujabe.bindPopup("Eiffel Tower").openPopup();
-</script>
